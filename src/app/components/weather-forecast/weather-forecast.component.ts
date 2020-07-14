@@ -5,13 +5,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 
-@Component({
+@Component({  
   selector: 'app-weather-forecast',
   templateUrl: './weather-forecast.component.html',
   styleUrls: ['./weather-forecast.component.scss']
 })
 export class WeatherForecastComponent implements OnInit {
  
+  src: any = "../assets/day/113.png";
   historic: Array<HistoricItem> = [];  
   waetherCurrent: WeatherModel = new WeatherModel(new Location(""))
 
@@ -31,7 +32,7 @@ export class WeatherForecastComponent implements OnInit {
       environment.weatherCondition.forEach(wc => {
           if (wc.code == waether.current.condition.code){
             this.waetherCurrent.classCondition = wc.class;
-            this.waetherCurrent.current.condition.icon =  this.waetherCurrent.current.is_day ? `day/${wc.icon}.png` : `night/${wc.icon}.png`;
+            this.src = this.waetherCurrent.current.is_day ? `../assets/day/${wc.icon}.png` : `../assets/night/${wc.icon}.png`;
           }
       })          
     });
@@ -42,6 +43,7 @@ export class WeatherForecastComponent implements OnInit {
       waetherForecast?.forecast?.forecastday[0]?.hour?.forEach(element => {        
         let date = new Date(element.time);
         let current = ("0" + date.getHours()).slice(-2);        
+        
         environment.periodsDay.forEach(e => {         
           if (current == e.hour){            
             let icon = element.condition.icon.substring(element.condition.icon.lastIndexOf('/') + 1);    
@@ -49,7 +51,8 @@ export class WeatherForecastComponent implements OnInit {
             let item = new HistoricItem(e.name, element.temp_c, icon);        
             this.historic.push(item);  
           }
-        })        
+        })
+
       });   
     });
   }
