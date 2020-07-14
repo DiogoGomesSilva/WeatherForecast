@@ -26,17 +26,20 @@ export class WeatherForecastComponent implements OnInit {
   }
 
   getWaether(cityName: string) {
-    this.weatherService.getWeather(cityName).subscribe((waether: WeatherModel) => {
-      let icon = waether.current.condition.icon.substring(waether.current.condition.icon.lastIndexOf('/') + 1);  
-      this.waetherCurrent = waether;
-      this.waetherCurrent.current.condition.icon =  this.waetherCurrent.current.is_day ? `day/${icon}` : `night/${icon}`;  
-         
+    this.weatherService.getWeather(cityName).subscribe((waether: WeatherModel) => { 
+      this.waetherCurrent = waether;     
+      environment.weatherCondition.forEach(wc => {
+          if (wc.code == waether.current.condition.code){
+            this.waetherCurrent.classCondition = wc.class;
+            this.waetherCurrent.current.condition.icon =  this.waetherCurrent.current.is_day ? `day/${wc.icon}.png` : `night/${wc.icon}.png`;
+          }
+      })          
     });
   }
 
   getHourlynformation(cityName: string, date: string){    
     this.weatherService.getWeatherHistory(cityName, date).subscribe((waetherForecast: WeatherForecastModel) => {       
-      waetherForecast.forecast.forecastday[0].hour.forEach(element => {        
+      waetherForecast?.forecast?.forecastday[0]?.hour?.forEach(element => {        
         let date = new Date(element.time);
         let current = ("0" + date.getHours()).slice(-2);        
         environment.periodsDay.forEach(e => {         

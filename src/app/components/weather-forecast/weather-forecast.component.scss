@@ -1,89 +1,293 @@
-div {
-  color: white;
-}
-
-.jumbotron {
-  background: rgb(87, 203, 220);
-  background: linear-gradient(180deg, rgba(87, 203, 220, 1) 0%, rgba(59, 161, 181, 1) 100%);
-  margin: 0;
-  border-radius: 0;
-}
-
-.row {
-  font-size: 25px;
-  letter-spacing: 1px;
-}
-
-.jumbotron>.container {
-  align-content: center;
-
-  .header {
-    .title {
-      color: white;
-      letter-spacing: 3px;
-      font-size: 3.4rem;
-      line-height: 0;
-      font-family: weather;
-    }
-
-    .subtitle {
-      font-size: 2.0rem;
-      line-height: 0;
-      -webkit-text-fill-color: white;
-      -webkit-text-stroke-color: #57cbdc;
-      -webkit-text-stroke-width: 1;
-      font-family: weather;
-    }
+.sunnyModo {
+  div {
+    color: white;
   }
 
-  .body {
-    .main-temperature {
-      font-size: 9rem;
-      line-height: 100px;     
-    }
+  nav {
+    background: #57cbdc
+  } 
 
-    .i-arrow-top {
-      height: 20px;
-      top: 4px;
-      position: relative;
-      float: left;
-    }
+  .jumbotron {
+    background: rgb(87, 203, 220);
+    background: linear-gradient(180deg, rgba(87, 203, 220, 1) 0%, rgba(59, 161, 181, 1) 100%);
+    margin: 0;
+    border-radius: 0;
+  }
 
-    .i-arrow-bottom {
-      height: 20px;
-      top: 14px;
-      position: relative;
-      float: left;
-    }
+  .row {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
 
-    .max-min-temperature {
-      font-size: 10px;
+  .jumbotron>.container {
+    align-content: center;
 
-      span {
-        color: #fffc;
-        font-size: 25px;
+    .header {
+      .title {
+        color: white;
+        letter-spacing: 3px;
+        font-size: 3.4rem;
+        line-height: 0;
+        font-family: weather;
+      }
+
+      .subtitle {
+        font-size: 2.0rem;
+        line-height: 0;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-color: #57cbdc;
+        -webkit-text-stroke-width: 1;
+        font-family: weather;
       }
     }
 
-    
+    .body {
+      .main-temperature {
+        font-size: 9rem;
+        line-height: 100px;
+      }
+
+      .i-arrow-top {
+        height: 20px;
+        top: 4px;
+        position: relative;
+        float: left;
+      }
+
+      .i-arrow-bottom {
+        height: 20px;
+        top: 14px;
+        position: relative;
+        float: left;
+      }
+
+      .max-min-temperature {
+        font-size: 10px;
+
+        span {
+          color: #fffc;
+          font-size: 25px;
+        }
+      }
+
+
+    }
+
+    .footer {
+      margin-top: 10px;
+
+      .title {
+        color: #ffffff7d;
+      }
+
+      .subtitle {
+        color: #ffffff99;
+      }
+
+      .line-separet {
+        width: 1px;
+        height: 49px;
+        background-color: #ffffff2e;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.rainyModo {
+  div {
+    color: white;
   }
 
-  .footer {
-    margin-top: 10px;
+  nav {
+    background: #616978
+  } 
 
-    .title {
-      color: #ffffff7d;
+  .jumbotron {
+    background: #57cbdc;
+    background: linear-gradient(180deg, #616978 0%, #3c4353 100%);
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .row {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .jumbotron>.container {
+    align-content: center;
+
+    .header {
+      .title {
+        color: white;
+        letter-spacing: 3px;
+        font-size: 3.4rem;
+        line-height: 0;
+        font-family: weather;
+      }
+
+      .subtitle {
+        font-size: 2.0rem;
+        line-height: 0;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-color: #57cbdc;
+        -webkit-text-stroke-width: 1;
+        font-family: weather;
+      }
     }
 
-    .subtitle {
-      color: #ffffff99;
+    .body {
+      .main-temperature {
+        font-size: 9rem;
+        line-height: 100px;
+      }
+
+      .i-arrow-top {
+        height: 20px;
+        top: 4px;
+        position: relative;
+        float: left;
+      }
+
+      .i-arrow-bottom {
+        height: 20px;
+        top: 14px;
+        position: relative;
+        float: left;
+      }
+
+      .max-min-temperature {
+        font-size: 10px;
+
+        span {
+          color: #fffc;
+          font-size: 25px;
+        }
+      }
+
+
     }
 
-    .line-separet {
-      width: 1px;
-      height: 49px;
-      background-color: #ffffff2e;
-      margin: 0 auto;
+    .footer {
+      margin-top: 10px;
+
+      .title {
+        color: #ffffff7d;
+      }
+
+      .subtitle {
+        color: #ffffff99;
+      }
+
+      .line-separet {
+        width: 1px;
+        height: 49px;
+        background-color: #ffffff2e;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.snowyModo {
+  div {
+    color: black;
+  }
+
+  nav {
+    background: #e0e0e0;
+    
+    .i-arrow-left {
+      stroke: #1f1f1f;
+    }
+  }
+
+  .jumbotron {
+    background: #e0e0e0;
+    background: linear-gradient(180deg, #e0e0e0 0%, #a6a6a6 100%);
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .row {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .jumbotron>.container {
+    align-content: center;
+
+    .header {
+      .title {
+        color: black;
+        letter-spacing: 3px;
+        font-size: 3.4rem;
+        line-height: 0;
+        font-family: weather;
+      }
+
+      .subtitle {
+        font-size: 2.0rem;
+        line-height: 0;
+        -webkit-text-fill-color: black;
+        -webkit-text-stroke-color: #57cbdc;
+        -webkit-text-stroke-width: 1;
+        font-family: weather;
+      }
+    }
+
+    .body {
+      .main-temperature {
+        font-size: 9rem;
+        line-height: 100px;
+      }
+
+      .i-arrow-top {
+        height: 20px;
+        top: 4px;
+        position: relative;
+        float: left;
+        stroke: #6d6d6d;
+      }
+
+      .i-arrow-bottom {
+        height: 20px;
+        top: 14px;
+        position: relative;
+        float: left;
+        stroke: #6d6d6d;
+      }
+
+      .max-min-temperature {
+        font-size: 10px;
+
+        span {
+          color: #000c;
+          font-size: 25px;
+        }
+      }
+
+
+    }
+
+    .footer {
+      margin-top: 10px;
+
+      .title {
+        color: #0000007d;
+      }
+
+      .subtitle {
+        color: #00000099;
+      }
+
+      .line-separet {
+        width: 1px;
+        height: 49px;
+        background-color: #0000002e;
+        margin: 0 auto;
+      }
     }
   }
 }

@@ -1,114 +1,116 @@
-<nav class="navbar" style="background-color: #57cbdc">
-    <a class="navbar-brand" href="#">
-        <svg id="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
-            stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.6875">
-            <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
-        </svg>
-    </a>
-</nav>
+<div class="{{waetherCurrent.classCondition}}">
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <svg id="i-arrow-left" class="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.6875">
+                <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
+            </svg>
+        </a>
+    </nav>
 
-<div class="jumbotron d-flex align-items-center min-vh-100">
-    <div class="container text-center">
-        <div class="d-flex flex-column">
-            <div class="header">
-                <div class="p-2">
-                    <span class="title">{{waetherCurrent?.location.name?.toUpperCase() || ""}}</span>
+    <div class="jumbotron d-flex align-items-center min-vh-100">
+        <div class="container text-center">
+            <div class="d-flex flex-column">
+                <div class="header">
+                    <div class="p-2">
+                        <span class="title">{{waetherCurrent?.location.name?.split(" ")[0].toUpperCase() || ""}}</span>
+                    </div>
+                    <div class="p-2">
+                        <span class="subtitle">{{waetherCurrent?.current?.condition.text.toLowerCase() || ""}}</span>
+                    </div>
                 </div>
-                <div class="p-2">
-                    <span class="subtitle">{{waetherCurrent?.current?.condition.text.toLowerCase() || ""}}</span>
-                </div>
-            </div>
-            <div class="body">
-                <div class="p-2">
-                    <div class="row d-flex justify-content-center content">
-                        <div class="main-temperature">
-                            {{waetherCurrent?.current?.temp_c.toString().split('.')[0] || ""}}
+                <div class="body">
+                    <div class="p-2">
+                        <div class="row d-flex justify-content-center content">
+                            <div class="main-temperature">
+                                {{waetherCurrent?.current?.temp_c.toString().split('.')[0] || ""}}
+                            </div>
+                            <div>
+                                <div>°C</div>
+                                <div class="max-min-temperature">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <svg id="i-arrow-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                                                width="20" height="32" fill="none" stroke="#ffffff3b"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                class="i-arrow-top">
+                                                <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
+                                            </svg>
+                                            <span>{{waetherCurrent?.forecast?.forecastday[0]?.day?.maxtemp_c?.toString().split('.')[0] || ""}}°</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <svg id="i-arrow-bottom" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 32 32" width="20" height="32" fill="none"
+                                                stroke="#ffffff3b" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" class="i-arrow-bottom">
+                                                <path d="M6 22 L16 30 26 22 M16 30 L16 2" />
+                                            </svg>
+                                            <span>{{waetherCurrent?.forecast?.forecastday[0]?.day?.mintemp_c.toString().split('.')[0] || ""}}°</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
                         <div>
-                            <div>°C</div>
-                            <div class="max-min-temperature">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <svg id="i-arrow-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
-                                            width="20" height="32" fill="none" stroke="#ffffff3b" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2"
-                                            class="i-arrow-top">
-                                            <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
-                                        </svg>                                   
-                                        <span>{{waetherCurrent?.forecast?.forecastday[0]?.day?.maxtemp_c?.toString().split('.')[0] || ""}}°</span>
-                                    </div>
+                            <img height="200" src="assets/{{waetherCurrent?.current?.condition?.icon}}">
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col- col-sm" *ngFor="let item of historic">
+                                <div>
+                                    {{item?.periodsDay || ""}}
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <svg id="i-arrow-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
-                                            width="20" height="32" fill="none" stroke="#ffffff3b" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2"
-                                            class="i-arrow-bottom">
-                                            <path d="M6 22 L16 30 26 22 M16 30 L16 2" />
-                                        </svg>                                  
-                                        <span>{{waetherCurrent?.forecast?.forecastday[0]?.day?.mintemp_c.toString().split('.')[0] || ""}}°</span>
-                                    </div>
+                                <div>
+                                    <img height="60" src="assets/{{item.icon}}">
+                                </div>
+                                <div>
+                                    {{item?.temp_c?.toString()?.split('.')[0] || ""}}°C
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div>
-                        <img height="200" src="assets/{{waetherCurrent?.current?.condition?.icon}}">
-                    </div>
-                </div>
-                <div class="p-2">
-                    <div class="row">
-                        <div class="col- col-sm" *ngFor="let item of historic">
-                            <div>
-                                {{item?.periodsDay || ""}}
+                <div class="footer">
+                    <div class="row align-items-center">
+                        <div class="col- col-sm">
+                            <div class="title">
+                                wind speed
                             </div>
-                            <div>
-                                <img height="60" src="assets/{{item.icon}}">
-                            </div>
-                            <div>
-                                {{item?.temp_c?.toString()?.split('.')[0] || ""}}°C
+                            <div class="subtitle">
+                                {{waetherCurrent?.current?.wind_mph || "" }} m/s
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <div class="row align-items-center">
-                    <div class="col- col-sm">
-                        <div class="title">
-                            wind speed
+                        <div class="line-separet"></div>
+                        <div class="col- col-sm">
+                            <div class="title">
+                                sunrise
+                            </div>
+                            <div class="subtitle">
+                                {{waetherCurrent?.forecast?.forecastday[0].astro.sunrise || "" }}
+                            </div>
                         </div>
-                        <div class="subtitle">
-                            {{waetherCurrent?.current?.wind_mph || "" }} m/s
+                        <div class="line-separet"></div>
+                        <div class="col- col-sm">
+                            <div class="title">
+                                sunset
+                            </div>
+                            <div class="subtitle">
+                                {{waetherCurrent?.forecast?.forecastday[0].astro.sunset || ""}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="line-separet"></div>
-                    <div class="col- col-sm">
-                        <div class="title">
-                            sunrise
-                        </div>
-                        <div class="subtitle">
-                            {{waetherCurrent?.forecast?.forecastday[0].astro.sunrise || "" }}
-                        </div>
-                    </div>
-                    <div class="line-separet"></div>
-                    <div class="col- col-sm">
-                        <div class="title">
-                            sunset
-                        </div>
-                        <div class="subtitle">
-                            {{waetherCurrent?.forecast?.forecastday[0].astro.sunset || ""}}
-                        </div>
-                    </div>
-                    <div class="line-separet"></div>
-                    <div class="col- col-sm">
-                        <div class="title">
-                            humildity
-                        </div>
-                        <div class="subtitle">
-                            {{waetherCurrent?.current?.humidity}}%
+                        <div class="line-separet"></div>
+                        <div class="col- col-sm">
+                            <div class="title">
+                                humildity
+                            </div>
+                            <div class="subtitle">
+                                {{waetherCurrent?.current?.humidity}}%
+                            </div>
                         </div>
                     </div>
                 </div>

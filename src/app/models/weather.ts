@@ -3,7 +3,7 @@ export class WeatherModel {
         public location?: Location,
         public current?: Current,
         public forecast?: Forecast,
-        public day?: string,
+        public classCondition?: string,
         public icon?: string,         
     ) {}
 }
@@ -39,7 +39,8 @@ export class Current {
 export class Condition {
     constructor(
         public text?: string,
-        public icon?: string) {}
+        public icon?: string,
+        public code?: number) {}
 }
 
 export class Forecast {
