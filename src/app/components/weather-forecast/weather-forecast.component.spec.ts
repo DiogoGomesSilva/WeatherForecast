@@ -1,25 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherForecastComponent } from './weather-forecast.component';
+import { WeatherForecastService } from 'src/app/services/weather-forecast.service';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
-describe('WeatherForecastComponent', () => {
-  let component: WeatherForecastComponent;
-  let fixture: ComponentFixture<WeatherForecastComponent>;
+describe('WeatherForecastComponent', () => { 
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ WeatherForecastComponent ]
-    })
-    .compileComponents();
-  }));
+    let component: WeatherForecastComponent;
+    let service: WeatherForecastService;
+    let httpClient : HttpClient;
+    let activatedRoute : ActivatedRoute
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(WeatherForecastComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+      service = new WeatherForecastService(httpClient);
+      component = new WeatherForecastComponent(service, activatedRoute);
+      TestBed.createComponent(WeatherForecastComponent);
+    });
+  
+    afterEach(() => {      
+      service = null;
+      component = null;
+    }); 
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
+

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  weatherforecast:
+    image: weatherforecast
+    build: . 
+    ports:
+      - 8081:80

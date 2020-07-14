@@ -8,7 +8,6 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor(private renderer: Renderer2) {
-
     this.renderer.setStyle(document.body, 'background-color', 'black');
   }
 
