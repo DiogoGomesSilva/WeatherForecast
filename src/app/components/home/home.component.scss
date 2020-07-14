@@ -1,0 +1,45 @@
+div {
+  color: white;
+  font-family: weather;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.title {
+  color: white;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+  line-height: 0;
+  ;
+}
+
+.subtitle {
+  font-size: 2.0rem;
+  line-height: 0;  
+}
+
+.world {
+  margin: 40px;
+}
+
+.jumbotron {
+  background-color: black;
+  border-radius: 0px;
+}
+
+.row {
+  font-size: 25px;
+  letter-spacing: 1px;
+
+}
+
+.jumbotron>.container {
+  align-content: center;
+
+
+
+}

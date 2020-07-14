@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+// html {
+//     background-color: black;
+// }
+@font-face{
+    src: url(assets/fonts/DidactGothic-Regular.ttf);
+    font-family: weather;
+}
+
+html, body, .container-table {
+    height: 100%;
+}
