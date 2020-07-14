@@ -1,8 +1,9 @@
 <div class="{{waetherCurrent.classCondition}}">
     <nav class="navbar">
         <a class="navbar-brand" href="#">
-            <svg id="i-arrow-left" class="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
-                fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.6875">
+            <svg id="i-arrow-left" class="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                width="32" height="32" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="4.6875">
                 <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
             </svg>
         </a>
@@ -60,8 +61,8 @@
                         </div>
                     </div>
                     <div class="p-2">
-                        <div class="row">
-                            <div class="col- col-sm" *ngFor="let item of historic">
+                        <div class="row justify-content-md-center">
+                            <div class="col col-lg-2" *ngFor="let item of historic">
                                 <div>
                                     {{item?.periodsDay || ""}}
                                 </div>
@@ -76,35 +77,36 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <div class="row align-items-center">
-                        <div class="col- col-sm">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-2">
                             <div class="title">
                                 wind speed
                             </div>
                             <div class="subtitle">
                                 {{waetherCurrent?.current?.wind_mph || "" }} m/s
                             </div>
+                            <div class="line-separet"></div>
                         </div>
-                        <div class="line-separet"></div>
-                        <div class="col- col-sm">
+                        
+                        <div class="col col-lg-2">
                             <div class="title">
                                 sunrise
                             </div>
                             <div class="subtitle">
                                 {{waetherCurrent?.forecast?.forecastday[0].astro.sunrise || "" }}
                             </div>
+                            <div class="line-separet"></div>
                         </div>
-                        <div class="line-separet"></div>
-                        <div class="col- col-sm">
+                        <div class="col col-lg-2">
                             <div class="title">
                                 sunset
                             </div>
                             <div class="subtitle">
                                 {{waetherCurrent?.forecast?.forecastday[0].astro.sunset || ""}}
                             </div>
+                            <div class="line-separet"></div>
                         </div>
-                        <div class="line-separet"></div>
-                        <div class="col- col-sm">
+                        <div class="col col-lg-2">
                             <div class="title">
                                 humildity
                             </div>
